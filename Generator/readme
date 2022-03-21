@@ -1,0 +1,347 @@
+DataSet for MODCOD Project
+
+CODE DATA:
+
+/home/user12/Saad_External/MODCOD_DataSet/COD_DATASET/LDPC_DATASET.h5
+HDF5 LDPC_DATASET.h5 
+Group '/' 
+    Dataset 'CODERATE' 
+        Size:  1x10000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATA' 
+        Size:  129600x10000
+        MaxSize:  129600xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1296x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/COD_DATASET/TURBO_DATASET.h5
+HDF5 TURBO_DATASET.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  154800x10000
+        MaxSize:  154800xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  154800x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/COD_DATASET/POLAR_DATASET.h5
+HDF5 POLAR_DATASET.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  102400x10000
+        MaxSize:  102400xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  102400x1
+        Filters:  none
+        FillValue:  0.000000
+
+
+MODULATION DATA:
+
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_8Samp1.h5
+HDF5 MOD_8Samp1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_16Samp1.h5
+HDF5 MOD_16Samp1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_32Samp1.h5
+HDF5 MOD_32Samp1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+                
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_16SampNN_1.h5                
+HDF5 MOD_16SampNN_1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_Rayleighfadded_16Samp_N1.h5        
+HDF5 MOD_Rayleighfadded_16Samp_N1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_Rician0p3fadded_16Samp_N1.h5        
+HDF5 MOD_Rician0p3fadded_16Samp_N1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_Rician0p7fadded_16Samp_N1.h5
+HDF5 MOD_Rician0p7fadded_16Samp_N1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_Rician0p9fadded_16Samp_N1.h5
+HDF5 MOD_Rician0p9fadded_16Samp_N1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_Rayleighfadded_16Samp_N_NN1.h5
+HDF5 MOD_Rayleighfadded_16Samp_N_NN1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_Rician0p3fadded_16Samp_N_NN1.h5        
+HDF5 MOD_Rician0p3fadded_16Samp_N_NN1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_Rician0p7fadded_16Samp_N_NN1.h5        
+HDF5 MOD_Rician0p7fadded_16Samp_N_NN1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+        
+/home/user12/Saad_External/MODCOD_DataSet/MOD_DATASET/MOD_Rician0p9fadded_16Samp_N_NN1.h5    
+HDF5 MOD_Rician0p9fadded_16Samp_N_NN1.h5 
+Group '/' 
+    Dataset 'DATA' 
+        Size:  4x256x600000
+        MaxSize:  4x256xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  4x256x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'DATATYPE' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'SNR' 
+        Size:  1x600000
+        MaxSize:  1xInf
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  1x1
+        Filters:  none
+        FillValue:  0.000000                                
+                                               

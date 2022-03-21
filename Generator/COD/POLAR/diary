@@ -1,0 +1,869 @@
+clc
+initPC(128,64,1,2)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 1
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+initPC
+
+   Usage: initPC(N,K,Ec,N0,designSNRdB)
+
+       N  -  Blocklength
+       K  -  Message length (Rate = K/N)
+       Ec and N0  -  the BPSK symbol energy and noise power spectral density respectively, to Monte-Carlo simulate etc.
+       designSNRdB (optional) - the SNR (Ec/N0) at which the polar code should be constructed
+
+   Note: This routine must be called, before we use any other utility around here.
+
+initPC(128,64,1,2)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 1
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+diary
+clc
+N=128; K=64; Ec=1; N0=2; %0dB SNR
+clc
+N=128; K=64; Ec=1; %SNR=0dB
+PCparams;
+initPC(128,64,1)
+{Error using <a href="matlab:helpUtils.errorDocCallback('initPC', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/initPC.m', 42)" style="font-weight:bold">initPC</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/initPC.m',42,0)">line 42</a>)
+Not enough input arguments.
+} 
+initPC(128,64,1)
+{Error using <a href="matlab:helpUtils.errorDocCallback('initPC', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/initPC.m', 42)" style="font-weight:bold">initPC</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/initPC.m',42,0)">line 42</a>)
+Not enough input arguments.
+} 
+initPC(128,64,1)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 1
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+u = (rand(K,1)>0.5);
+x = pencode(u);
+y = (2*x-1)*sqrt(PCparams.Ec) + randn(N,1);
+u_decoded = pdecode(y);
+u == u_decoded
+
+ans =
+
+     1
+     0
+     1
+     0
+     0
+     0
+     0
+     1
+     0
+     1
+     1
+     1
+     1
+     0
+     1
+     1
+     0
+     1
+     1
+     1
+     1
+     1
+     1
+     0
+     1
+     1
+     0
+     1
+     1
+     0
+     1
+     1
+     0
+     1
+     1
+     1
+     1
+     0
+     1
+     1
+     0
+     1
+     1
+     1
+     1
+     1
+     1
+     1
+     0
+     1
+     1
+     0
+     1
+     1
+     1
+     1
+     1
+     1
+     1
+     0
+     1
+     1
+     1
+     0
+
+plotPC
+{Error using <a href="matlab:helpUtils.errorDocCallback('plotPC', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/plotPC.m', 14)" style="font-weight:bold">plotPC</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/plotPC.m',14,0)">line 14</a>)
+Not enough input arguments.
+} 
+plotPC(128,64)
+
+   Usage: initPC(N,K,Ec,N0,designSNRdB)
+
+       N  -  Blocklength
+       K  -  Message length (Rate = K/N)
+       Ec -  the BPSK symbol energy
+       N0 (optional) -  Noise power spectral density (default N0/2 = 1)
+                           (used for Monte-Carlo simulate etc)
+       designSNRdB (optional) - the SNR at which the polar code should be constructed
+                                 (Here, SNR=Ec/N0 - by definition for a PCC, defaults to "0dB")
+
+   Note: This routine must be called, before we use any other utility around here.
+
+Eb/N0 = 0.0 dB and iteration-200: 0.03 sec : 150 FEs, 3263 BEs 
+Eb/N0 = 0.0 dB and iteration-400: 0.03 sec : 295 FEs, 6325 BEs 
+Eb/N0 = 0.0 dB and iteration-600: 0.03 sec : 425 FEs, 9058 BEs 
+Eb/N0 = 0.0 dB and iteration-800: 0.03 sec : 574 FEs, 12201 BEs 
+Eb/N0 = 0.0 dB and iteration-1000: 0.03 sec : 725 FEs, 15368 BEs 
+Elapsed time is 27.111024 seconds.
+Eb/N0 = 1.0 dB and iteration-200: 0.03 sec : 92 FEs, 1787 BEs 
+Eb/N0 = 1.0 dB and iteration-400: 0.03 sec : 181 FEs, 3348 BEs 
+Eb/N0 = 1.0 dB and iteration-600: 0.03 sec : 266 FEs, 4795 BEs 
+Eb/N0 = 1.0 dB and iteration-800: 0.03 sec : 344 FEs, 6208 BEs 
+Eb/N0 = 1.0 dB and iteration-1000: 0.03 sec : 429 FEs, 7544 BEs 
+Elapsed time is 27.239158 seconds.
+Eb/N0 = 2.0 dB and iteration-200: 0.03 sec : 26 FEs, 325 BEs 
+Eb/N0 = 2.0 dB and iteration-400: 0.03 sec : 49 FEs, 708 BEs 
+Eb/N0 = 2.0 dB and iteration-600: 0.03 sec : 72 FEs, 1157 BEs 
+Eb/N0 = 2.0 dB and iteration-800: 0.03 sec : 99 FEs, 1581 BEs 
+Eb/N0 = 2.0 dB and iteration-1000: 0.03 sec : 117 FEs, 1849 BEs 
+Eb/N0 = 2.0 dB and iteration-1200: 0.03 sec : 144 FEs, 2324 BEs 
+Eb/N0 = 2.0 dB and iteration-1400: 0.03 sec : 171 FEs, 2771 BEs 
+Eb/N0 = 2.0 dB and iteration-1600: 0.03 sec : 193 FEs, 3068 BEs 
+Elapsed time is 45.808339 seconds.
+Eb/N0 = 3.0 dB and iteration-200: 0.03 sec : 3 FEs, 23 BEs 
+Eb/N0 = 3.0 dB and iteration-400: 0.03 sec : 9 FEs, 99 BEs 
+Eb/N0 = 3.0 dB and iteration-600: 0.03 sec : 15 FEs, 199 BEs 
+Eb/N0 = 3.0 dB and iteration-800: 0.03 sec : 19 FEs, 243 BEs 
+Eb/N0 = 3.0 dB and iteration-1000: 0.03 sec : 23 FEs, 307 BEs 
+Eb/N0 = 3.0 dB and iteration-1200: 0.03 sec : 28 FEs, 372 BEs 
+Eb/N0 = 3.0 dB and iteration-1400: 0.03 sec : 34 FEs, 432 BEs 
+Eb/N0 = 3.0 dB and iteration-1600: 0.03 sec : 41 FEs, 515 BEs 
+Eb/N0 = 3.0 dB and iteration-1800: 0.03 sec : 47 FEs, 567 BEs 
+Eb/N0 = 3.0 dB and iteration-2000: 0.03 sec : 48 FEs, 585 BEs 
+Eb/N0 = 3.0 dB and iteration-2200: 0.03 sec : 54 FEs, 612 BEs 
+Eb/N0 = 3.0 dB and iteration-2400: 0.03 sec : 60 FEs, 680 BEs 
+Eb/N0 = 3.0 dB and iteration-2600: 0.03 sec : 64 FEs, 731 BEs 
+Eb/N0 = 3.0 dB and iteration-2800: 0.04 sec : 67 FEs, 747 BEs 
+Eb/N0 = 3.0 dB and iteration-3000: 0.03 sec : 73 FEs, 810 BEs 
+Eb/N0 = 3.0 dB and iteration-3200: 0.03 sec : 78 FEs, 858 BEs 
+Eb/N0 = 3.0 dB and iteration-3400: 0.03 sec : 81 FEs, 888 BEs 
+Eb/N0 = 3.0 dB and iteration-3600: 0.03 sec : 89 FEs, 974 BEs 
+Eb/N0 = 3.0 dB and iteration-3800: 0.03 sec : 89 FEs, 974 BEs 
+Eb/N0 = 3.0 dB and iteration-4000: 0.03 sec : 92 FEs, 1011 BEs 
+Eb/N0 = 3.0 dB and iteration-4200: 0.03 sec : 98 FEs, 1068 BEs 
+Eb/N0 = 3.0 dB and iteration-4400: 0.03 sec : 103 FEs, 1110 BEs 
+Eb/N0 = 3.0 dB and iteration-4600: 0.03 sec : 107 FEs, 1178 BEs 
+Eb/N0 = 3.0 dB and iteration-4800: 0.03 sec : 109 FEs, 1194 BEs 
+Eb/N0 = 3.0 dB and iteration-5000: 0.03 sec : 115 FEs, 1239 BEs 
+Eb/N0 = 3.0 dB and iteration-5200: 0.03 sec : 119 FEs, 1285 BEs 
+Eb/N0 = 3.0 dB and iteration-5400: 0.03 sec : 134 FEs, 1548 BEs 
+Eb/N0 = 3.0 dB and iteration-5600: 0.03 sec : 138 FEs, 1594 BEs 
+Eb/N0 = 3.0 dB and iteration-5800: 0.03 sec : 140 FEs, 1624 BEs 
+Eb/N0 = 3.0 dB and iteration-6000: 0.03 sec : 144 FEs, 1648 BEs 
+Eb/N0 = 3.0 dB and iteration-6200: 0.03 sec : 149 FEs, 1697 BEs 
+Eb/N0 = 3.0 dB and iteration-6400: 0.03 sec : 157 FEs, 1814 BEs 
+Eb/N0 = 3.0 dB and iteration-6600: 0.04 sec : 161 FEs, 1845 BEs 
+Eb/N0 = 3.0 dB and iteration-6800: 0.03 sec : 165 FEs, 1913 BEs 
+Eb/N0 = 3.0 dB and iteration-7000: 0.03 sec : 172 FEs, 2011 BEs 
+Eb/N0 = 3.0 dB and iteration-7200: 0.03 sec : 177 FEs, 2091 BEs 
+Eb/N0 = 3.0 dB and iteration-7400: 0.03 sec : 181 FEs, 2168 BEs 
+Eb/N0 = 3.0 dB and iteration-7600: 0.03 sec : 186 FEs, 2218 BEs 
+Eb/N0 = 3.0 dB and iteration-7800: 0.03 sec : 190 FEs, 2256 BEs 
+Eb/N0 = 3.0 dB and iteration-8000: 0.03 sec : 194 FEs, 2324 BEs 
+Eb/N0 = 3.0 dB and iteration-8200: 0.03 sec : 199 FEs, 2370 BEs 
+Elapsed time is 224.805259 seconds.
+
+ Eb/N0 range (dB) :      0     1     2     3
+
+
+ Frame Error Rates:     0.7250    0.4290    0.1190    0.0244
+
+
+ Bit Error Rates  :     0.2401    0.1179    0.0296    0.0045
+
+
+sum(u == u_decoded)
+
+ans =
+
+    46
+
+initPC(128,64,2)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 2
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+u = (rand(K,1)>0.5);
+x = pencode(u);
+u_decoded = pdecode(y);
+sum(u == u_decoded)
+
+ans =
+
+    32
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y);
+sum(u == u_decoded)
+
+ans =
+
+    31
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y);
+sum(u == u_decoded)
+
+ans =
+
+    32
+
+size(u)
+
+ans =
+
+    64     1
+
+[u_decoded
+[u_decoded';u']
+
+ans =
+
+  Columns 1 through 12
+
+     1     1     1     0     1     1     0     1     0     0     1     0
+     1     0     1     0     1     1     1     0     1     0     0     0
+
+  Columns 13 through 24
+
+     1     0     0     1     0     0     0     0     0     0     0     1
+     0     0     1     1     1     0     0     1     1     1     1     1
+
+  Columns 25 through 36
+
+     1     1     1     0     0     0     1     0     0     0     1     1
+     1     1     0     0     0     0     0     1     0     1     1     1
+
+  Columns 37 through 48
+
+     1     1     1     1     1     1     0     1     1     0     1     1
+     1     1     0     0     0     0     0     0     0     1     1     0
+
+  Columns 49 through 60
+
+     1     1     0     1     0     1     0     0     0     1     1     0
+     0     0     0     0     0     1     1     0     0     0     0     1
+
+  Columns 61 through 64
+
+     1     0     1     1
+     1     1     1     1
+
+plotPC(128,64)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 1
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+Eb/N0 = 0.0 dB and iteration-500: 0.03 sec : 351 FEs, 7538 BEs 
+Eb/N0 = 0.0 dB and iteration-1000: 0.03 sec : 702 FEs, 14932 BEs 
+Elapsed time is 27.393526 seconds.
+Eb/N0 = 1.0 dB and iteration-500: 0.03 sec : 216 FEs, 3610 BEs 
+Eb/N0 = 1.0 dB and iteration-1000: 0.03 sec : 419 FEs, 7115 BEs 
+Elapsed time is 27.525914 seconds.
+Eb/N0 = 2.0 dB and iteration-500: 0.03 sec : 52 FEs, 778 BEs 
+Eb/N0 = 2.0 dB and iteration-1000: 0.03 sec : 125 FEs, 1823 BEs 
+Elapsed time is 40.851083 seconds.
+
+ Eb/N0 range (dB) :      0     1     2
+
+
+ Frame Error Rates:     0.7020    0.4190    0.1349
+
+
+ Bit Error Rates  :     0.2333    0.1112    0.0312
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    35
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    32
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    17
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    38
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    35
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    38
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    37
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    29
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    30
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    29
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    40
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    30
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    30
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    30
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    38
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    23
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    26
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    31
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    26
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    30
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    31
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    31
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    32
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    21
+
+initPC(128,64,2)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+{Error using <a href="matlab:helpUtils.errorDocCallback('initPC', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/initPC.m', 60)" style="font-weight:bold">initPC</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/initPC.m',60,0)">line 60</a>)
+Not enough input arguments.
+} 
+initPC(128,64,2)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+initPC(128,64,2)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 2
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    29
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    38
+
+plotPC(128,64)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 1
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+
+Ec =
+
+     1
+
+Eb/N0 = 0.0 dB and iteration-500: 0.03 sec : 372 FEs, 7800 BEs 
+Eb/N0 = 0.0 dB and iteration-1000: 0.03 sec : 747 FEs, 15770 BEs 
+Elapsed time is 27.271768 seconds.
+
+Ec =
+
+    1.2589
+
+Eb/N0 = 1.0 dB and iteration-500: 0.03 sec : 220 FEs, 4082 BEs 
+Eb/N0 = 1.0 dB and iteration-1000: 0.03 sec : 430 FEs, 7861 BEs 
+Elapsed time is 27.341877 seconds.
+
+Ec =
+
+    1.5849
+
+Eb/N0 = 2.0 dB and iteration-500: 0.03 sec : 54 FEs, 848 BEs 
+Eb/N0 = 2.0 dB and iteration-1000: 0.03 sec : 95 FEs, 1520 BEs 
+Eb/N0 = 2.0 dB and iteration-1500: 0.03 sec : 163 FEs, 2627 BEs 
+Elapsed time is 48.105757 seconds.
+
+ Eb/N0 range (dB) :      0     1     2
+
+
+ Frame Error Rates:     0.7470    0.4300    0.1141
+
+
+ Bit Error Rates  :     0.2464    0.1228    0.0275
+
+u = (rand(K,1)>0.5); x=pencode(u); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    32
+
+u = (rand(K,1)>0.5); x=pencode(u); y=(2*x-1)*sqrt(Ec) + randn(N,1)*sqrt(N0/2); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    40
+
+u = (rand(K,1)>0.5); x=pencode(u); y=(2*x-1)*sqrt(Ec) + randn(N,1)*sqrt(N0/2); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    64
+
+u = (rand(K,1)>0.5); x=pencode(u); y=(2*x-1)*sqrt(Ec) + randn(N,1)*sqrt(N0/2); u_decoded=pdecode(y); sum(u==u_decoded)
+
+ans =
+
+    50
+
+clc
+N=128; K=64; Ec=1; %0dB SNR
+initPC(N,K,Ec);
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 1
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+u= (rand(K,1)>0.5); %message
+x= pencode(u); % POLAR ENCODING
+y= (2*x-1)*sqrt(Ec) + sqrt(N0/2)*randn(N,1); %AWGN
+u_decoded= pdecode(y);
+logical(sum(u==u_decoded))
+
+ans =
+
+     1
+
+x_systematic = systematic_pencode(u);
+y= (2*x-1)*sqrt(Ec) + sqrt(N0/2)*randn(N,1); %AWGN
+u_decoded_systematic= systematic_pdecode(y);
+logical(sum(u==u_decoded))
+
+ans =
+
+     1
+
+plotPC(128,64,0:0.4:2)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 1
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+
+Ec =
+
+     1
+
+Eb/N0 = 0.0 dB and iteration-200: 0.03 sec : 140 FEs, 2611 BEs 
+{Operation terminated by user during <a href="matlab:helpUtils.errorDocCallback('updateLLR', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/functions/updateLLR.m', 47)" style="font-weight:bold">updateLLR</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/functions/updateLLR.m',47,0)">line 47</a>)
+
+In <a href="matlab:helpUtils.errorDocCallback('pdecode', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/pdecode.m', 50)" style="font-weight:bold">pdecode</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/pdecode.m',50,0)">line 50</a>)
+        updateLLR(i);
+
+In <a href="matlab:helpUtils.errorDocCallback('plotPC', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/plotPC.m', 57)" style="font-weight:bold">plotPC</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/plotPC.m',57,0)">line 57</a>)
+        uhat = pdecode(y);
+} 
+plotPC(128,64,0:0.4:2)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+              N: 128
+              K: 64
+              n: 7
+       FZlookup: [128x1 double]
+             Ec: 1
+             N0: 2
+            LLR: [1x255 double]
+           BITS: [2x127 double]
+    designSNRdB: 0
+
+
+Ec =
+
+     1
+
+Eb/N0 = 0.0 dB and iteration-200: 0.03 sec : 144 FEs, 2852 BEs 
+Eb/N0 = 0.0 dB and iteration-400: 0.03 sec : 285 FEs, 5828 BEs 
+{Operation terminated by user during <a href="matlab:helpUtils.errorDocCallback('updateBITS', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/functions/updateBITS.m', 25)" style="font-weight:bold">updateBITS</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/functions/updateBITS.m',25,0)">line 25</a>)
+
+In <a href="matlab:helpUtils.errorDocCallback('pdecode', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/pdecode.m', 62)" style="font-weight:bold">pdecode</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/pdecode.m',62,0)">line 62</a>)
+        updateBITS(d_hat(i),i);
+
+In <a href="matlab:helpUtils.errorDocCallback('plotPC', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/plotPC.m', 57)" style="font-weight:bold">plotPC</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/plotPC.m',57,0)">line 57</a>)
+        uhat = pdecode(y);
+} 
+plotPC(128,64,0:0.4:2)
+
+ All polar coding parameters/resources initialized. (in a structure - "PCparams") 
+
+Ec =
+
+     1
+
+Eb/N0 = 0.0 dB and iteration-200: 0.03 sec : 152 FEs, 2971 BEs 
+Eb/N0 = 0.0 dB and iteration-400: 0.03 sec : 298 FEs, 5884 BEs 
+Eb/N0 = 0.0 dB and iteration-600: 0.03 sec : 449 FEs, 8924 BEs 
+Eb/N0 = 0.0 dB and iteration-800: 0.03 sec : 595 FEs, 12124 BEs 
+Eb/N0 = 0.0 dB and iteration-1000: 0.03 sec : 747 FEs, 15337 BEs 
+Elapsed time is 27.158370 seconds.
+
+Ec =
+
+    1.0965
+
+Eb/N0 = 0.4 dB and iteration-200: 0.03 sec : 117 FEs, 2484 BEs 
+Eb/N0 = 0.4 dB and iteration-400: 0.03 sec : 245 FEs, 4784 BEs 
+Eb/N0 = 0.4 dB and iteration-600: 0.03 sec : 350 FEs, 6882 BEs 
+Eb/N0 = 0.4 dB and iteration-800: 0.03 sec : 461 FEs, 8909 BEs 
+Eb/N0 = 0.4 dB and iteration-1000: 0.03 sec : 582 FEs, 11288 BEs 
+Elapsed time is 27.069826 seconds.
+
+Ec =
+
+    1.2023
+
+Eb/N0 = 0.8 dB and iteration-200: 0.03 sec : 97 FEs, 1926 BEs 
+Eb/N0 = 0.8 dB and iteration-400: 0.03 sec : 189 FEs, 3505 BEs 
+Eb/N0 = 0.8 dB and iteration-600: 0.03 sec : 286 FEs, 5431 BEs 
+Eb/N0 = 0.8 dB and iteration-800: 0.03 sec : 386 FEs, 7252 BEs 
+Eb/N0 = 0.8 dB and iteration-1000: 0.03 sec : 462 FEs, 8739 BEs 
+Elapsed time is 27.057324 seconds.
+
+Ec =
+
+    1.3183
+
+Eb/N0 = 1.2 dB and iteration-200: 0.03 sec : 94 FEs, 1523 BEs 
+Eb/N0 = 1.2 dB and iteration-400: 0.03 sec : 159 FEs, 2702 BEs 
+Eb/N0 = 1.2 dB and iteration-600: 0.03 sec : 219 FEs, 3700 BEs 
+Eb/N0 = 1.2 dB and iteration-800: 0.03 sec : 288 FEs, 4963 BEs 
+Eb/N0 = 1.2 dB and iteration-1000: 0.03 sec : 358 FEs, 6321 BEs 
+Elapsed time is 27.005153 seconds.
+
+Ec =
+
+    1.4454
+
+Eb/N0 = 1.6 dB and iteration-200: 0.03 sec : 55 FEs, 817 BEs 
+Eb/N0 = 1.6 dB and iteration-400: 0.03 sec : 100 FEs, 1583 BEs 
+Eb/N0 = 1.6 dB and iteration-600: 0.03 sec : 143 FEs, 2124 BEs 
+Eb/N0 = 1.6 dB and iteration-800: 0.03 sec : 185 FEs, 2746 BEs 
+Eb/N0 = 1.6 dB and iteration-1000: 0.03 sec : 222 FEs, 3377 BEs 
+Elapsed time is 27.037978 seconds.
+
+Ec =
+
+    1.5849
+
+Eb/N0 = 2.0 dB and iteration-200: 0.03 sec : 28 FEs, 370 BEs 
+Eb/N0 = 2.0 dB and iteration-400: 0.03 sec : 49 FEs, 632 BEs 
+Eb/N0 = 2.0 dB and iteration-600: 0.03 sec : 71 FEs, 957 BEs 
+Eb/N0 = 2.0 dB and iteration-800: 0.04 sec : 108 FEs, 1471 BEs 
+Eb/N0 = 2.0 dB and iteration-1000: 0.03 sec : 134 FEs, 1843 BEs 
+Eb/N0 = 2.0 dB and iteration-1200: 0.03 sec : 169 FEs, 2377 BEs 
+Elapsed time is 37.593056 seconds.
+
+ Eb/N0 range (dB) :          0    0.4000    0.8000    1.2000    1.6000    2.0000
+
+
+ Frame Error Rates:     0.7470    0.5820    0.4620    0.3580    0.2220    0.1439
+
+
+ Bit Error Rates  :     0.2396    0.1764    0.1365    0.0988    0.0528    0.0325
+
+~0
+
+ans =
+
+     1
+
+plotPC(64,32,0:0.4:2,0,0)
+SNR point (out of 6):  1 (time:13.05 sec) 2 (time:13.24 sec) 3 (time:13.12 sec) 4 (time:13.09 sec) 5 (time:13.08 sec) 6 (time:21.90 sec)
+ Eb/N0 range (dB) :          0    0.4000    0.8000    1.2000    1.6000    2.0000
+
+
+ Frame Error Rates:     0.5680    0.4800    0.3460    0.2730    0.1996    0.1190
+
+
+ Bit Error Rates  :     0.1884    0.1531    0.1135    0.0774    0.0599    0.0329
+
+plotPC(64,32,0:0.4:2,0,0)
+Completed SNR points (out of 6): 
+ 0.00 dB (time:13.06 sec)
+ 0.40 dB (time:13.21 sec)
+ 0.80 dB (time:13.16 sec)
+ 1.20 dB (time:13.12 sec)
+ 1.60 dB (time:13.14 sec)
+ 2.00 dB (time:21.68 sec)
+
+ Eb/N0 range (dB) :          0    0.4000    0.8000    1.2000    1.6000    2.0000
+
+
+ Frame Error Rates:     0.5730    0.4580    0.3650    0.2840    0.2060    0.1214
+
+
+ Bit Error Rates  :     0.1968    0.1514    0.1176    0.0833    0.0607    0.0337
+
+plotPC_systematic(64,32,0:0.4:2,0,0)
+Completed SNR points (out of 6): 
+ 0.00 dB (time taken:15.31 sec)
+ 0.40 dB (time taken:15.30 sec)
+ 0.80 dB (time taken:15.29 sec)
+ 1.20 dB (time taken:15.27 sec)
+ 1.60 dB (time taken:16.64 sec)
+ 2.00 dB (time taken:23.55 sec)
+
+ Eb/N0 range (dB) :          0    0.4000    0.8000    1.2000    1.6000    2.0000
+
+
+ Frame Error Rates:     0.5490    0.4640    0.3500    0.2970    0.1838    0.1298
+
+
+ Bit Error Rates  :     0.1037    0.0892    0.0617    0.0512    0.0312    0.0222
+
+N=128; K=64; EbN0range=0:0.4:2; designSNRdB=0;
+plotPC(N,K,EbN0range,designSNRdB,0); %last argument says no VERBOSE-output
+Completed SNR points (out of 6): 
+ 0.00 dB (time taken:27.69 sec)
+ 0.40 dB (time taken:27.18 sec)
+ 0.80 dB (time taken:27.18 sec)
+ 1.20 dB (time taken:27.16 sec)
+ 1.60 dB (time taken:27.10 sec)
+ 2.00 dB (time taken:40.55 sec)
+
+ Eb/N0 range (dB) :          0    0.4000    0.8000    1.2000    1.6000    2.0000
+
+
+ Frame Error Rates:     0.7080    0.5930    0.4790    0.3730    0.2400    0.1342
+
+
+ Bit Error Rates  :     0.2311    0.1776    0.1393    0.1012    0.0646    0.0317
+
+plotPC_systematic(N,K,EbN0range,designSNRdB,0); %last argument says no VERBOSE-output
+Completed SNR points (out of 6): 
+ 0.00 dB (time taken:31.66 sec)
+ 0.40 dB (time taken:31.68 sec)
+ 0.80 dB (time taken:31.84 sec)
+ 1.20 dB (time taken:31.71 sec)
+ 1.60 dB (time taken:31.94 sec)
+ 2.00 dB (time taken:45.58 sec)
+
+ Eb/N0 range (dB) :          0    0.4000    0.8000    1.2000    1.6000    2.0000
+
+
+ Frame Error Rates:     0.7400    0.6050    0.4620    0.3140    0.2430    0.1395
+
+
+ Bit Error Rates  :     0.1223    0.0906    0.0649    0.0386    0.0276    0.0142
+
+plotPC_systematic(N,K,0:0.4:0.4,designSNRdB,0); %last argument says no VERBOSE-output
+Completed SNR points (out of 2): 
+ 0.00 dB (time taken:31.56 sec)
+ 0.40 dB (time taken:31.83 sec)
+
+ Eb/N0 range (dB) :          0    0.4000
+
+ Frame Error Rates:     0.7440    0.6300
+
+ Bit Error Rates  :     0.1238    0.0975
+
+plotPC
+
+   Usage: plotPC(N,K,EbN0dBrange,designSNRdB,verbose_output_flag)
+
+       N  -  Blocklength
+       K  -  Message length (Rate = K/N)
+       EbN0dBrange -  the range of Eb/N0 values in dB
+                           to Monte-Carlo simulate)
+       designSNRdB (optional) - the SNR at which the polar code should be constructed
+                                 (Here, SNR=Ec/N0 - by definition for a PCC, defaults to "0dB")
+       verbose_output_flag - whether to print detailed status of the simulation periodically
+
+{Error using <a href="matlab:helpUtils.errorDocCallback('plotPC', '/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_in_MATLAB/toWEBPAGE/plotPC.m', 44)" style="font-weight:bold">plotPC</a> (<a href="matlab: opentoline('/home/harish/Documents/2My_Own_Work/0PROGRAMMING/PolarCodes/PolarCodes_i
