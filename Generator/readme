@@ -42,6 +42,23 @@ Group '/'
         Filters:  none
         FillValue:  0.000000
 
+/home/user12/Saad_External/MODCOD_DataSet/COD_DATASET/COD_TrainingData.hdf5 
+HDF5 COD_TrainingData.hdf5 
+Group '/' 
+    Dataset 'data' 
+        Size:  2048x300000
+        MaxSize:  2048x300000
+        Datatype:   H5T_IEEE_F64LE (double)
+        ChunkSize:  []
+        Filters:  none
+        FillValue:  0.000000
+    Dataset 'label' 
+        Size:  300000
+        MaxSize:  300000
+        Datatype:   H5T_STD_I64LE (int64)
+        ChunkSize:  []
+        Filters:  none
+        FillValue:  0
 
 MODULATION DATA:
 
